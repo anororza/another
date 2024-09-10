@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าเกมส์ในคอม</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/dsdd.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+  <!---- Header ของฉัน ------->
+  <style>
+    /* Custom styles for the navbar */
+    .navbar-custom {
+      background-color: #212529; /* Dark background */
+      border-bottom: 3px solid #ffc107; /* Accent border color */
+    }
+    .navbar-custom .navbar-brand {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .navbar-custom .nav-link {
+      color: #ffffff;
+      font-size: 1rem;
+      margin-right: 15px;
+      transition: color 0.3s ease;
+    }
+    .navbar-custom .nav-link:hover,
+    .navbar-custom .nav-link.active {
+      color: #ffc107; /* Accent color on hover and active */
+    }
+    .navbar-custom .nav-link svg {
+      fill: #ffffff;
+    }
+    .navbar-custom .nav-link:hover svg,
+    .navbar-custom .nav-link.active svg {
+      fill: #ffc107; /* Accent color on hover and active */
+    }
+    /* <!---------- ปิด header ------> */
+  </style>
+    <style>
+        .card {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+        .card-img-top {
+          object-fit: cover; /* ทำให้รูปภาพเติมเต็มพื้นที่การ์ด */
+          height: 225px; /* ความสูงที่กำหนดให้รูปภาพ */
+        }
+        .card-body {
+          flex: 1; /* ทำให้ card-body ขยายตัวเพื่อเติมพื้นที่ที่เหลือ */
+        }
+        .card-text {
+          margin-bottom: 1rem; /* เพิ่มช่องว่างระหว่างข้อความและปุ่ม */
+          
+        }
+      </style>
+
+      <style>
+        .card {
+          display: flex;
+          flex-direction: column;
+          height: 100%; /* ให้การ์ดขยายความสูงเต็มที่ของคอลัมน์ */
+          border-radius: 15px; /* ขอบโค้งของการ์ด */
+          overflow: hidden; /* ป้องกันเนื้อหาล้นออกจากกรอบ */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาที่นุ่มนวล */
+          transition: transform 0.3s, box-shadow 0.3s; /* การเปลี่ยนแปลงที่เรียบง่ายเมื่อโฮเวอร์ */
+        }
+        .card:hover {
+          transform: translateY(-5px); /* การ์ดยกขึ้นเล็กน้อยเมื่อโฮเวอร์ */
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* เงาที่เข้มขึ้นเมื่อโฮเวอร์ */
+        }
+        .card-img-top {
+          object-fit: cover; /* ทำให้รูปภาพเติมเต็มพื้นที่การ์ด */
+          height: 200px; /* ความสูงที่กำหนดให้รูปภาพ */
+          width: 100%; /* ทำให้รูปภาพขยายเต็มความกว้างของการ์ด */
+          border-bottom: 3px solid #ddd; /* เส้นขอบด้านล่างของรูปภาพ */
+        }
+        .card-body {
+          flex: 1; /* ทำให้ card-body ขยายตัวเพื่อเติมพื้นที่ที่เหลือ */
+          padding: 1rem; /* เพิ่มช่องว่างภายใน */
+        }
+        .card-text {
+          margin-bottom: 1rem; /* เพิ่มช่องว่างระหว่างข้อความและปุ่ม */
+          font-size: 0.9rem; /* ขนาดตัวอักษรที่เล็กลงเล็กน้อย */
+          color: #555; /* สีข้อความที่อ่อนกว่า */
+        }
+        .btn-outline-secondary {
+          border-radius: 20px; /* ขอบโค้งของปุ่ม */
+        }
+        .d-flex {
+          margin-top: auto; /* ดันเนื้อหาด้านล่างให้คงที่ที่ด้านล่างของการ์ด */
+        }
+      </style>
+    
+
+    <!------------------- Navbar --------------------->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container">
+          <a class="navbar-brand" href="/">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                  <use xlink:href="#bootstrap"></use>
+              </svg>
+              My Website
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="index.html">
+                          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+                          หน้าหลัก
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="gamep.html">
+                          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#mobile-games"></use></svg>
+                          เกมส์ที่น่าเล่นในโทรศัพท์
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" href="gmaec.html">
+                          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#pc-games"></use></svg>
+                          เกมส์ที่น่าเล่นสำหรับคอมพิวเตอร์
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="ask.html">
+                          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#contact"></use></svg>
+                          ติดต่อ
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+<br><br>
+      <!---------------- จบหัวเรื่อง -------------->
+      <center><h1 data-aos="fade-up">เกมส์ที่น่าเล่นสำหรับคอมพิวเตอร์</h1></center> <br>
+      <!---------------- เริ่ม Album -------------->
+      <div class="container" data-aos="fade-up">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="col">
+            <div class="card shadow-sm">
+            <a href="https://playvalorant.com/th-th/?gad_source=1&gclid=EAIaIQobChMImrqyw--0iAMVvKlmAh0_RzTFEAAYASAAEgJLnPD_BwE&gclsrc=aw.ds" target="_blank">
+            <img src="img/valorant-1.jpeg" class="card-img-top" alt="valorant">
+            </a>
+            <div class="card-body">
+                <p class="card-text">ผสมผสานสไตล์และประสบการณ์ของคุณบนเวทีการแข่งขันระดับโลก คุณมีโอกาสในการเล่น 13 รอบเพื่อโจมตีและป้องกันทีมของคุณด้วยการยิงที่เฉียบคมและความสามารถทางยุทธ</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">1 GB</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://www.nintendo.com/en-gb/Games/Characters-hub/Super-Mario-Hub/Super-Mario-Bros-Hub-Mario-Games-627604.html" target="_blank">
+                <img src="img/2x1_SuperMarioHub_image1600w.jpg" class="card-img-top" alt="Garena RoV: RoV DAY!">
+                </a>
+              <div class="card-body">
+                <p class="card-text">เป็นวิดีโอเกมแพลตฟอร์มที่พัฒนาโดยนินเทนโด อีเอดี (Nintendo Entertainment Analysis & Development) และจัดจำหน่ายโดยนินเทนโด เป็นภาคต่อไม่แท้</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">1 GB</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://store.steampowered.com/agecheck/app/271590/" target="_blank">
+                <img src="img/Grand-Theft-Auto-V.jpg" class="card-img-top" alt="Second Card image">
+                </a>
+              <div class="card-body">
+                <p class="card-text">GTA คอเกมทุกคนจะต้องรู้จักกันอย่างแน่นอน เพราะเป็นได้รับความนิยมอย่างมาก เปิดตัวมาตั้งแต่ปี 2013 จนตอนนี้เกือบสิบปีแล้ว เป็นเกมแอ็กชันผจญภัย</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">2.8 GB</small>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://www.callofduty.com/modernwarfare" target="_blank">
+                <img src="img/capsule_616x353.jpg" class="card-img-top" alt="Second Card image">
+            </a>
+              <div class="card-body">
+                <p class="card-text">คอลล์ออฟดิวตี: มอเดิร์นวอร์แฟร์ เป็นวิดีโอเกมยิงมุมมองบุคคลที่หนึ่งที่พัฒนาโดยอินฟินิตีวอร์ด และจัดจำหน่ายโดยแอ็กทิวิชัน เป็นเกมสำหรับเอกซ์บอกซ์วัน</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">60 Mb</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://store.steampowered.com/app/1293830/Forza_Horizon_4/" target="_blank">
+                <img src="img/forza.jpg" class="card-img-top" alt="Second Card image">
+            </a>
+              <div class="card-body">
+                <p class="card-text">เกมแข่งรถชื่อดังจาก Xbox Game Studio วางจำหน่ายไปตั้งแต่ปี 2018 บนแพลทฟอร์ม XBOX1 และใน PC บน Microsolf Store ตัวเกมจะมาในรูปแบบ Open World</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">2.8 GB</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://store.epicgames.com/th/p/fortnite" target="_blank">
+                <img src="img/fortnite.jpg" class="card-img-top" alt="Second Card image">
+            </a>
+              <div class="card-body">
+                <p class="card-text">เกมแนว Battle Royal ยอดฮิต จากค่าย Epic Games เปิดตัวครั้งแรกเมื่อปี 2017 เป็นเกมที่มีแนวคิดมาจากเกมอย่าง Minecraft และ Terraria ต้องเก็บวัตถุดิบและสร้างสิ่งปลูกสร้าง</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">79 Mb</small>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://pointblank.zepetto.com/th/login/form?utm_source=GOOGLE_ADS&utm_medium=Banner&utm_campaign=WEB_log-in&gad_source=1&gclid=EAIaIQobChMI4qOD3PK0iAMV4qRmAh10kz2zEAAYASABEgL5NPD_BwE" target="_blank">
+                <img src="img/pb.jpg" class="card-img-top" alt="Second Card image">
+            </a>
+              <div class="card-body">
+                <p class="card-text">Point Blankเป็นเกมยิงมุมมองบุคคลที่หนึ่งแบบออนไลน์ที่มีจังหวะรวดเร็ว นอกจากนี้ยังมีสภาพแวดล้อมที่ทำลายล้างได้และปรับเปลี่ยนได้</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">1.5 GB</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://www.leagueoflegends.com/th-th/" target="_blank">
+                <img src="img/league-of-legends-2022-official-art.jpg" class="card-img-top" alt="Second Card image">
+            </a>
+              <div class="card-body">
+                <p class="card-text">เกมจากค่าย Riot Games คือ League of Legends หรือเกม LOL เกมออนไลน์สไตล์ MOBA โดยผู้เล่นจะต้องสวมบทบาทเป็นผู้เรียกแชมเปียนส์ เลือกแชมเปียนส์ 1 ตัว เข้าไปสู่สนามรบ </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">40 Mb</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://store.steampowered.com/agecheck/app/680420/" target="_blank">
+                <img src="img/Outriders.jpg" class="card-img-top" alt="Second Card image">
+            </a>
+              <div class="card-body">
+                <p class="card-text">Outriders เป็นวิดีโอเกมบุคคลที่สามที่เล่นตามบทบาทร่วมมือกันออนไลน์เท่านั้น พัฒนาโดย People Can Fly และเผยแพร่โดย Square Enix</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">3 GB</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---------------- จบ Album -------------->
+      <!--------------- เริ่ม Footer --------------><br>
+      <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"></a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">หน้าหลัก</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">เกมส์ที่น่าเล่นในโทรศัพท์</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">เกมส์ที่น่าเล่นสำหรับคอมพิวเตอร์</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">ติดต่อ</a></li>
+          </ul>
+          <p class="text-center text-body-secondary">© จัดทำโดย จิรพัฒน์ ด้วงทอง</p>
+        </footer>
+      </div>
+      <!--------------- จบ Footer -------------->
+</header>
+<script>
+AOS.init();
+</script>
+</body>
+</html>

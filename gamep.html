@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าเกมส์ในโทรศัพท์</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/dsdd.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+  <style>
+    /* Custom styles for the navbar */
+    .navbar-custom {
+      background-color: #212529; /* Dark background */
+      border-bottom: 3px solid #ffc107; /* Accent border color */
+    }
+    .navbar-custom .navbar-brand {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .navbar-custom .nav-link {
+      color: #ffffff;
+      font-size: 1rem;
+      margin-right: 15px;
+      transition: color 0.3s ease;
+    }
+    .navbar-custom .nav-link:hover,
+    .navbar-custom .nav-link.active {
+      color: #ffc107; /* Accent color on hover and active */
+    }
+    .navbar-custom .nav-link svg {
+      fill: #ffffff;
+    }
+    .navbar-custom .nav-link:hover svg,
+    .navbar-custom .nav-link.active svg {
+      fill: #ffc107; /* Accent color on hover and active */
+    }
+  </style>
+    <style>
+        .card {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+        .card-img-top {
+          object-fit: cover; /* ทำให้รูปภาพเติมเต็มพื้นที่การ์ด */
+          height: 225px; /* ความสูงที่กำหนดให้รูปภาพ */
+        }
+        .card-body {
+          flex: 1; /* ทำให้ card-body ขยายตัวเพื่อเติมพื้นที่ที่เหลือ */
+        }
+        .card-text {
+          margin-bottom: 1rem; /* เพิ่มช่องว่างระหว่างข้อความและปุ่ม */
+          
+        }
+      </style>
+      <style>
+        .card {
+          display: flex;
+          flex-direction: column;
+          height: 100%; /* ให้การ์ดขยายความสูงเต็มที่ของคอลัมน์ */
+          border-radius: 15px; /* ขอบโค้งของการ์ด */
+          overflow: hidden; /* ป้องกันเนื้อหาล้นออกจากกรอบ */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาที่นุ่มนวล */
+          transition: transform 0.3s, box-shadow 0.3s; /* การเปลี่ยนแปลงที่เรียบง่ายเมื่อโฮเวอร์ */
+        }
+        .card:hover {
+          transform: translateY(-5px); /* การ์ดยกขึ้นเล็กน้อยเมื่อโฮเวอร์ */
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* เงาที่เข้มขึ้นเมื่อโฮเวอร์ */
+        }
+        .card-img-top {
+          object-fit: cover; /* ทำให้รูปภาพเติมเต็มพื้นที่การ์ด */
+          height: 200px; /* ความสูงที่กำหนดให้รูปภาพ */
+          width: 100%; /* ทำให้รูปภาพขยายเต็มความกว้างของการ์ด */
+          border-bottom: 3px solid #ddd; /* เส้นขอบด้านล่างของรูปภาพ */
+        }
+        .card-body {
+          flex: 1; /* ทำให้ card-body ขยายตัวเพื่อเติมพื้นที่ที่เหลือ */
+          padding: 1rem; /* เพิ่มช่องว่างภายใน */
+        }
+        .card-text {
+          margin-bottom: 1rem; /* เพิ่มช่องว่างระหว่างข้อความและปุ่ม */
+          font-size: 0.9rem; /* ขนาดตัวอักษรที่เล็กลงเล็กน้อย */
+          color: #555; /* สีข้อความที่อ่อนกว่า */
+        }
+        .btn-outline-secondary {
+          border-radius: 20px; /* ขอบโค้งของปุ่ม */
+        }
+        .d-flex {
+          margin-top: auto; /* ดันเนื้อหาด้านล่างให้คงที่ที่ด้านล่างของการ์ด */
+        }
+      </style>
+      
+
+    <!--------------------- Navbar ------------------->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container">
+          <a class="navbar-brand" href="/">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                  <use xlink:href="#bootstrap"></use>
+              </svg>
+              My Website
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="index.html">
+                          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+                          หน้าหลัก
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" href="#">
+                          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#mobile-games"></use></svg>
+                          เกมส์ที่น่าเล่นในโทรศัพท์
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="gmaec.html">
+                          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#pc-games"></use></svg>
+                          เกมส์ที่น่าเล่นสำหรับคอมพิวเตอร์
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="ask.html">
+                          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#contact"></use></svg>
+                          ติดต่อ
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+<br><br>
+      <!---------------- จบหัวเรื่อง -------------->
+      <center><h1 data-aos="fade-up">เกมส์ที่น่าเล่นในโทรศัพท์</h1></center> <br>
+      <!---------------- เริ่ม Album -------------->
+      <div class="container" data-aos="fade-up">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="col">
+            <div class="card shadow-sm">
+            <a href="https://play.google.com/store/apps/details?id=com.ea.gp.fifamobile&hl=th" target="_blank">
+            <img src="img/ดีไซน์ที่ยังไม่ได้ตั้งชื่อ.png" class="card-img-top" alt="EA Sports FC Mobile">
+            </a>
+            <div class="card-body">
+                <p class="card-text">EA Sports FC Mobile เป็นวิดีโอเกมจำลองการแข่งขันฟุตบอลที่พัฒนาโดย EA Mobile และ EA Canada และเผยแพร่โดย EA Sports </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">1 GB</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://play.google.com/store/apps/details?id=com.garena.game.kgth&hl=th" target="_blank">
+                <img src="img/rov-role-guide-th-7.jpg" class="card-img-top" alt="Garena RoV: RoV DAY!">
+                </a>
+              <div class="card-body">
+                <p class="card-text">อารีนาออฟเวเลอร์ หรือชื่อ เรียล์มออฟเวเลอร์ หรือเรียกกันทั่วไปในประเทศไทยว่า อาร์โอวี เป็นเกมแนวโมบาที่พัฒนาโดยทิมิสตูดิโอ </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">1 GB</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://play.google.com/store/apps/details?id=jp.konami.pesam&hl=th" target="_blank">
+                <img src="img/efootball-2024-out-today-but-still-without-master-league-cover64f9d7d779648.jpg" class="card-img-top" alt="Second Card image">
+                </a>
+              <div class="card-body">
+                <p class="card-text">ผู้เล่นที่ลงนามแล้วสามารถพัฒนาเพิ่มเติมได้ ทั้งนี้ขึ้นอยู่กับประเภทของผู้เล่นเพิ่มเลเวลผู้เล่นของคุณโดยให้พวกเขาเล่นในการแข่งขันและใช้</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">2.8 GB</small>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://play.google.com/store/apps/details?id=com.roblox.client&hl=en_US" target="_blank">
+                <img src="img/roblox.jpg" class="card-img-top" alt="Second Card image">
+            </a>
+              <div class="card-body">
+                <p class="card-text">โรบล็อกซ์ เป็นแพลตฟอร์มเกมออนไลน์หลายผู้เล่น และเกมเอนจินที่ถูกพัฒนาโดยโรบล็อกซ์คอร์ปอเรชั่น แพลตฟอร์มนี้ให้ผู้เล่นสร้างเกมเอง</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">60 Mb</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://play.google.com/store/apps/details?id=com.tencent.ig&hl=th" target="_blank">
+                <img src="img/pubg.png" class="card-img-top" alt="Second Card image">
+            </a>
+              <div class="card-body">
+                <p class="card-text">PUBG Mobile คือวิดีโอเกมแบทเทิลรอยัลที่เล่นฟรีซึ่งพัฒนาโดย LightSpeed ​​& Quantum Studio และ PUBG Studios มันเป็นเกมมือถือ</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">2.8 GB</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://play.google.com/store/apps/details?id=com.innersloth.spacemafia&hl=th" target="_blank">
+                <img src="img/among.jpg" class="card-img-top" alt="Second Card image">
+            </a>
+              <div class="card-body">
+                <p class="card-text">อะมังอัส เป็นวิดีโอเกมหลายผู้เล่นที่พัฒนาและเผยแพร่โดยบริษัทอินเนอร์สลอธ เกมมีฉากในอวกาศและมีการสุ่มผู้เล่นให้มีโอกาสเป็นได้ทั้งลูกเรือ</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">79 Mb</small>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://play.google.com/store/apps/details?id=com.mojang.minecraftpe&hl=th" target="_blank">
+                <img src="img/81gsSy5r13L.png" class="card-img-top" alt="Second Card image">
+            </a>
+              <div class="card-body">
+                <p class="card-text">ไมน์คราฟต์ เป็นวิดีโอเกมแซนด์บ็อกซ์ที่พัฒนาโดยบริษัทพัฒนาเกมสวีเดน โมแจงสตูดิโอส์ เกมไมน์คราฟต์สร้างขึ้นโดยนักออกแบบเกมชาวสวีเดน</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">1.5 GB</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://play.google.com/store/apps/details?id=com.rioo.runnersubway&hl=en" target="_blank">
+                <img src="img/aa-subway-surfers-hero-1.jpg" class="card-img-top" alt="Second Card image">
+            </a>
+              <div class="card-body">
+                <p class="card-text">ซับเวย์เซิร์ฟเฟอส์ เป็นเกมแอปพลิเคชันบนโทรศัพท์มือถือ พัฒนาโดยกิลู บริษัทเอกชนแห่งหนึ่งในประเทศเดนมาร์ก จำหน่ายใน พ.ศ. 2555</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">40 Mb</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="https://play.google.com/store/apps/details?id=com.activision.callofduty.shooter&hl=th" target="_blank">
+                <img src="img/Call-of-Duty_Anniversary_EN_1.png" class="card-img-top" alt="Second Card image">
+            </a>
+              <div class="card-body">
+                <p class="card-text">Call of Duty: Mobileเป็นวิดีโอเกมยิงมุมมองบุคคลที่หนึ่งใน ปี 2019 ที่พัฒนาโดย TiMi Studio Groupและเผยแพร่โดย Activision</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">download</button>
+                  </div>
+                  <small class="text-body-secondary">3 GB</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---------------- จบ Album -------------->
+      <!-- เริ่ม Footer --><br>
+      <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"></a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">หน้าหลัก</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">เกมส์ที่น่าเล่นในโทรศัพท์</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">เกมส์ที่น่าเล่นสำหรับคอมพิวเตอร์</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">ติดต่อ</a></li>
+          </ul>
+          <p class="text-center text-body-secondary">© จัดทำโดย จิรพัฒน์ ด้วงทอง</p>
+        </footer>
+      </div>
+</header>
+<script>
+AOS.init();
+</script>
+</body>
+</html>

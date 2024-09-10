@@ -3,17 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>หน้าแรก</title>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- style css -->
     <script src="css/proD.css"></script>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="css/dsdd.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- style ของ chat gpt -->
     <link rel="stylesheet" href="css/chat.css">
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
   </head>
 <body>
+  <style>
+    /* Custom styles for the navbar */
+    .navbar-custom {
+      background-color: #212529; /* Dark background */
+      border-bottom: 3px solid #ffc107; /* Accent border color */
+    }
+    .navbar-custom .navbar-brand {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .navbar-custom .nav-link {
+      color: #ffffff;
+      font-size: 1rem;
+      margin-right: 15px;
+      transition: color 0.3s ease;
+    }
+    .navbar-custom .nav-link:hover,
+    .navbar-custom .nav-link.active {
+      color: #ffc107; /* Accent color on hover and active */
+    }
+    .navbar-custom .nav-link svg {
+      fill: #ffffff;
+    }
+    .navbar-custom .nav-link:hover svg,
+    .navbar-custom .nav-link.active svg {
+      fill: #ffc107; /* Accent color on hover and active */
+    }
+  </style>
   <style>
     .card-cover {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -32,52 +69,56 @@
       opacity: 0.9; /* Slightly change the opacity of the text */
     }
   </style>  
-    <header>
-        <!-- เริ่มหัวเรื่อง -->
-        <div class="px-3 py-2 text-bg-dark border-bottom">
-          <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-              <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-              </a>
-    
-              <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-                <li>
-                  <a href="#" class="nav-link text-secondary">
-                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#หน้าหลัก"></use></svg>
-                    หน้าหลัก
-                  </a>
-                </li>
-                <li>
-                  <a href="index2.html" class="nav-link text-white">
-                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#เกมส์ที่หน้าเล่นในโทรศัพทร์"></use></svg>
-                    เกมส์ที่หน้าเล่นในโทรศัพท์
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link text-white">
-                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#เกมส์ที่หน้าเล่นสำหรับคอมพิวเตอร์"></use></svg>
-                    เกมส์ที่หน้าเล่นสำหรับคอมพิวเตอร์
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link text-white ">
-                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#ติดต่อ"></use></svg>
-                    ติดต่อ
-                  </a>
-                </li>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container">
+          <a class="navbar-brand" href="/">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                  <use xlink:href="#bootstrap"></use>
+              </svg>
+              My Website
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link active" href="index.html">
+                          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+                          หน้าหลัก
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="gamep.html">
+                          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#mobile-games"></use></svg>
+                          เกมส์ที่น่าเล่นในโทรศัพท์
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="gmaec.html">
+                          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#pc-games"></use></svg>
+                          เกมส์ที่น่าเล่นสำหรับคอมพิวเตอร์
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="ask.html">
+                          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#contact"></use></svg>
+                          ติดต่อ
+                      </a>
+                  </li>
               </ul>
-            </div>
           </div>
-        </div>
+      </div>
+  </nav>
         <!-- ปิดหัวเรื่อง -->
         <!-- เริ่มต้น ไอคอนเกมส์เรา -->
-        <div class="container py-5">
+        <div class="container py-5" >
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <div class="col">
-              <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('img/ดีไซน์ที่ยังไม่ได้ตั้งชื่อ.png');">
+              <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('img/sond.png');">
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                  <h3 class="mt-1 mb-2 display-6 lh-1 fw-bold text-dark">FIFA MOBILE</h3>
+
                   <ul class="d-flex list-unstyled mt-auto">
                     <li class="me-auto">
                       <img src="img/Dog-training-ball1.png" alt="โลโก้ FIFA MOBILE" width="32" height="32" class="rounded-circle border border-white">
@@ -125,14 +166,14 @@
         </div>
         
           <!-- ปิดไอคอนเกมส์ -->
-          <div class="container col-xxl-8 px-4 py-5">
+          <div class="container col-xxl-8 px-4 py-5" >
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
               <div class="col-10 col-sm-8 col-lg-6">
-                <img src="img/FIFAMobile_Press_Banner_1280x700.jpeg" class="d-block mx-lg-auto img-fluid rounded-5" alt="Bootstrap Themes" width="800" height="700" loading="lazy">
+                <img src="img/FIFAMobile_Press_Banner_1280x700.jpeg" class="d-block mx-lg-auto img-fluid rounded-5" alt="Bootstrap Themes" width="800" height="700" loading="lazy" data-aos="fade-up">
               </div>
               <div class="col-lg-6">
-                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">เกมส์ที่เป็นที่นิยม</h1>
-                <p class="lead">ขณะที่ UEFA EURO 2024™ ถึงบทสรุป การอัปเดตนี้จะเน้นการแก้ไขปัญหาที่มีอยู่ต่างๆ เพื่อยกระดับประสบการณ์การเล่นของคุณ เราได้แก้ไขปัญหาร้ายแรงซึ่งทำให้เกมหยุดทำงานและข้อผิดพลาดเกี่ยวกับการเล่นต่างๆ รวมถึงความผิดปกติในการถ่ายทอดการฝึก ข้อผิดพลาดในการแสดงแมตช์ที่สำคัญ และความไม่สอดคล้องกันของภาพในหน้าจอการแลกเปลี่ยน คอยติดตามช่องทางโซเชียลสำหรับ EA SPORTS FC™ Mobile (ก่อนหน้านี้คือ FIFA Mobile) ของเราเพื่อไม่พลาดการอัปเดตเหมือนเช่นเคยล่ะ!</p>
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"  data-aos="fade-up">เกมส์ที่เป็นที่นิยม</h1>
+                <p class="lead"  data-aos="fade-up">ขณะที่ UEFA EURO 2024™ ถึงบทสรุป การอัปเดตนี้จะเน้นการแก้ไขปัญหาที่มีอยู่ต่างๆ เพื่อยกระดับประสบการณ์การเล่นของคุณ เราได้แก้ไขปัญหาร้ายแรงซึ่งทำให้เกมหยุดทำงานและข้อผิดพลาดเกี่ยวกับการเล่นต่างๆ รวมถึงความผิดปกติในการถ่ายทอดการฝึก ข้อผิดพลาดในการแสดงแมตช์ที่สำคัญ และความไม่สอดคล้องกันของภาพในหน้าจอการแลกเปลี่ยน คอยติดตามช่องทางโซเชียลสำหรับ EA SPORTS FC™ Mobile (ก่อนหน้านี้คือ FIFA Mobile) ของเราเพื่อไม่พลาดการอัปเดตเหมือนเช่นเคยล่ะ!</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                   <a href="https://play.google.com/store/apps/details?id=com.ea.gp.fifamobile&hl=th&pli=1" class="btn btn-warning btn-lg px-4 me-md-2" role="button">ดาวน์โหลด</a>
                 </div>
@@ -141,7 +182,7 @@
           </div>
 
                     <!-- เริ่ม Carousel -->
-                    <div id="carouselExampleCaptions" class="carousel slide">
+                    <div id="carouselExampleCaptions" class="carousel slide"  data-aos="fade-up">
                       <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -187,14 +228,17 @@
                       <footer class="py-3 my-4">
                         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
                           <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"></a></li>
-                          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-                          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Mobile phone</a></li>
-                          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Computer</a></li>
-                          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">contact</a></li>
-                        </ul>
-                        <p class="text-center text-body-secondary">© 2024 Games, Pc m</p>
-                      </footer>
+                          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">หน้าหลัก</a></li>
+                          <li li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">เกมส์ที่น่าเล่นในโทรศัพท์</a></li>
+                          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">เกมส์ที่น่าเล่นสำหรับคอมพิวเตอร์</a></li>
+                         <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">ติดต่อ</a></li>
+                      </ul>
+                      <p class="text-center text-body-secondary">© จัดทำโดย จิรพัฒน์ ด้วงทอง</p>
+                    </footer>
                     </div>
     </header>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>
